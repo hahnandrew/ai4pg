@@ -16,6 +16,9 @@ firebase_admin
 Flask-Caching
 openai
 hvac
+docx2python
+pypdf
+PyPDF2
 
 gevent
 

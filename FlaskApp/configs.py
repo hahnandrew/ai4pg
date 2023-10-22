@@ -4,6 +4,7 @@ from db.postgres_manager import PostgresManager
 from managers.firebase_manager.firebase_manager import FirebaseManager
 from managers.openai_manager.openai_manager import OpenAIManager
 from managers.restdbio_manager.restdbio_email_manager import RestDBIOEmailManager
+from managers.document_manager.document_manager import DocumentManager
 
 
 from utils.env_vars import ENV_VARS
@@ -19,12 +20,7 @@ class DevConfigs:
 
   app ={}
   postgres_manager= None
-  # openai_manager = OpenAIManager(ENV_VARS.get("OPENAI_API_KEY_0"))
-  # sentry_manager = SentryManager()
-  # restdbio_email_manager = RestDBIOEmailManager(ENV_VARS.get("RESTDBIO_SERVER_API_KEY_0"))
-
-  # cron_task_runner =  CronTasksRunner()
-  # firebase_manager = FirebaseManager(ENV_VARS)
+  document_manager = DocumentManager()
 
   def _create_app_info_obj(self,backend_port=5025):
 
@@ -40,12 +36,8 @@ class DevConfigs:
 
   def __init__(self):
     self.app =self._create_app_info_obj()
-    # self.postgres_manager = PostgresManager(ENV_VARS.get("SQLALCHEMY_POSTGRESSQL_0_CONN_STRING"),self)
-    # self.square_manager = SquareManager(
-    #   ENV_VARS.get("SQUARE_ACCESS_TOKEN_0"),
-    #   ENV_VARS.get("SQUARE_LOCATION_NAME_0"),
-    #   self
-    # )
+    self.postgres_manager = PostgresManager(ENV_VARS.get("SQLALCHEMY_POSTGRESSQL_0_CONN_STRING"),self)
+    self.openai_manager = OpenAIManager(ENV_VARS.get("OPENAI_API_KEY_0"))
 
 
 
