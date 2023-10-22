@@ -103,4 +103,4 @@ def parse_certificate_data(input_text):
         "Notice": notice,
     }
 
-    return json.dumps(certificate_data, indent=4)
+    return certificate_data
