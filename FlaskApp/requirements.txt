@@ -22,6 +22,7 @@ PyPDF2
 pytesseract
 
 gevent
+easyocr
 
 
 pytest
