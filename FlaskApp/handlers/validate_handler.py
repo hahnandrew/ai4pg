@@ -8,6 +8,7 @@ import pytesseract
 from PIL import Image
 import easyocr
 from configs import CONFIGS
+import json
 
 
 
@@ -24,7 +25,7 @@ def extract_text_from_image(binary_image_data):
     image_stream = BytesIO(binary_image_data)
     image = Image.open(image_stream)
     reader = easyocr.Reader(['en'])  # 'en' specifies English language, adjust this based on your language
-    result = reader.readtext(image)
+    result = reader.readtext(binary_image_data)
 
     parsed_text = ""
     for detection in result:
