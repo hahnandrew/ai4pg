@@ -108,11 +108,10 @@ app.add_url_rule('/', 'index', (lambda: "test 1"))
 if __name__ == "__main__":
     if ENV_VARS.get("FLASK_BACKEND_ENV") == "DEV":
 
-
       app.run(
         use_reloader=True,
         exclude_patterns="site-packages",
-        debug=True,port=CONFIGS.app["backend_port"])
+        port=CONFIGS.app["backend_port"])
 
     else:
       app.run()
