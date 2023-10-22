@@ -22,6 +22,8 @@ from flask_caching import Cache
 from endpoints.healthcheck_endpoint import healthcheck_endpoint
 from endpoints.scratchpad_endpoint import scratchpad_endpoint
 from endpoints.accounts_endpoint import accounts_endpoint
+from endpoints.validate_endpoint import validate_endpoint
+
 
 app = Flask(__name__)
 app.config.update(
@@ -37,7 +39,7 @@ my_cache.init_app(app)
 
 app.register_blueprint(healthcheck_endpoint)
 app.register_blueprint(accounts_endpoint)
-
+app.register_blueprint(validate_endpoint)
 if ENV_VARS.get("FLASK_BACKEND_ENV") == "DEV":
   app.register_blueprint(scratchpad_endpoint)
 
