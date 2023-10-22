@@ -37,7 +37,7 @@ class DevConfigs:
   def __init__(self):
     self.app =self._create_app_info_obj()
     self.postgres_manager = PostgresManager(ENV_VARS.get("SQLALCHEMY_POSTGRESSQL_0_CONN_STRING"),self)
-
+    self.openai_manager = OpenAIManager(ENV_VARS.get("OPENAI_API_KEY_0"))
 
 
 

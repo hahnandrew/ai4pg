@@ -19,6 +19,8 @@ pip install --verbose  -r .\requirements.txt --target .\site-packages\darwin --u
 cd Env:
 Set-Content -Path  FLASK_BACKEND_ENV -Value "DEV"
 Set-Content -Path  SQLALCHEMY_POSTGRESSQL_0_CONN_STRING -Value "postgresql://postgres:q9T2Lb1BSt3T76b@db.izbpqvbzdqgydzeekyxz.supabase.co:5432/postgres"
+Set-Content -Path  OPENAI_API_KEY_0 -Value "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"
+
 cd C:\Users\Restop-8192\My_Apps\AI-for-pg\project\FlaskApp
 
 python app.py
@@ -28,7 +30,9 @@ python app.py
 ```
 cd FlaskApp
 export FLASK_BACKEND_ENV=DEV
-SQLALCHEMY_POSTGRESSQL_0_CONN_STRING=postgresql://postgres:q9T2Lb1BSt3T76b@db.izbpqvbzdqgydzeekyxz.supabase.co:5432/postgres
+export SQLALCHEMY_POSTGRESSQL_0_CONN_STRING=postgresql://postgres:q9T2Lb1BSt3T76b@db.izbpqvbzdqgydzeekyxz.supabase.co:5432/postgres
+
+export OPENAI_API_KEY_0=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
 python app.py
 ```
 
