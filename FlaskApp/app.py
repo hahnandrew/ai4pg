@@ -57,7 +57,7 @@ def after_request(response):
   origin =  request.headers.get('Origin',"")
 
   if origin in CONFIGS.app['access_control_allow_origin'] or CONFIGS.app['access_control_allow_origin'][0] == '*':
-    response.headers.add('Access-Control-Allow-Origin', *)
+    response.headers.add('Access-Control-Allow-Origin', "*")
   # response.headers.add('Access-Control-Allow-Headers', 'Cookie,Content-Type,Authorization, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers')
   response.headers.add('Access-Control-Allow-Headers','*')
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,PATCH')
