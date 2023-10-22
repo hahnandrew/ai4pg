@@ -20,11 +20,8 @@ from flask_caching import Cache
 
 # dev additions
 from endpoints.healthcheck_endpoint import healthcheck_endpoint
-
 from endpoints.scratchpad_endpoint import scratchpad_endpoint
-from endpoints.store_endpoint import store_endpoint
 from endpoints.accounts_endpoint import accounts_endpoint
-from endpoints.buddies_endpoint import buddies_endpoint
 
 app = Flask(__name__)
 app.config.update(
@@ -39,9 +36,7 @@ if ENV_VARS.get("FLASK_BACKEND_ENV") == "DEV":
 my_cache.init_app(app)
 
 app.register_blueprint(healthcheck_endpoint)
-app.register_blueprint(store_endpoint)
 app.register_blueprint(accounts_endpoint)
-app.register_blueprint(buddies_endpoint)
 
 if ENV_VARS.get("FLASK_BACKEND_ENV") == "DEV":
   app.register_blueprint(scratchpad_endpoint)

@@ -2,14 +2,12 @@ import os
 from db.postgres_manager import PostgresManager
 
 from managers.firebase_manager.firebase_manager import FirebaseManager
-from managers.openai_manager import OpenAIManager
+from managers.openai_manager.openai_manager import OpenAIManager
 from managers.restdbio_manager.restdbio_email_manager import RestDBIOEmailManager
-from managers.sentry_manager import SentryManager
-from managers.square_manager import SquareManager
-from managers.watchdog_manager import WatchdogManager
+
+
 from utils.env_vars import ENV_VARS
 from utils.local_deps import  local_deps
-from utils.run_cron_tasks import CronTasksRunner
 local_deps()
 
 class DevConfigs:

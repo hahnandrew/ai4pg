@@ -11,7 +11,7 @@ from utils.my_util import APIMsgFormat
 from utils.print_if_dev import print_if_dev
 from utils.specific.hash_string import hash_string
 
-from handlers  import accounts_handler,scratchpad_handler,buddies_handler
+from handlers  import accounts_handler,scratchpad_handler
 from utils.wml_libs.pagination import WMLAPIPaginationRequestModel
 
 scratchpad_endpoint =Blueprint("scratchpad", __name__, url_prefix="/scratchpad")
@@ -34,11 +34,5 @@ def scratchpad_endpoint_delete_all_users():
   return res.return_flask_response(),200
 
 
-@scratchpad_endpoint.route('/buddies/list',methods=['POST'])
-def scratchpad_endpoint_list_buddies():
-  data = request.json.get('data',{})
-  result = buddies_handler.list_buddies(data)
-  res = APIMsgFormat(data=result,msg="A-OK",code=CONFIGS.endpointMsgCodes["success"])
-  return res.return_flask_response(),200
 
 
