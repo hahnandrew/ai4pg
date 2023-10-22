@@ -2,7 +2,7 @@ FROM python:3.11.3
 
 WORKDIR /root/FlaskApp
 
-COPY project/FlaskApp /root/FlaskApp
+COPY FlaskApp /root/FlaskApp
 RUN  cd root/FlaskApp; ls; cat requirements.txt; pip install -r requirements.txt
 
 
