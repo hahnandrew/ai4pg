@@ -10,7 +10,6 @@ from utils.singleton_exception import SingletonException
 from utils.local_deps import local_deps
 local_deps()
 import openai
-import sentry_sdk
 
 class OpenAIModelCompletionEnum(Enum):
   BABBAGE = "babbage"
