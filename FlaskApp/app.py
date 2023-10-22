@@ -43,13 +43,13 @@ app.register_blueprint(validate_endpoint)
 if ENV_VARS.get("FLASK_BACKEND_ENV") == "DEV":
   app.register_blueprint(scratchpad_endpoint)
 
-@app.before_request
-def upgrade_to_https():
-  if not request.is_secure and ENV_VARS.get("FLASK_BACKEND_ENV") == "DEV" :
-    if request.method != 'OPTIONS' or 'Access-Control-Request-Method' not in request.headers:
-      url = request.url.replace('http://', 'https://', 1)
-      code = 301
-      return redirect(url, code=code)
+# @app.before_request
+# def upgrade_to_https():
+#   if not request.is_secure and ENV_VARS.get("FLASK_BACKEND_ENV") == "DEV" :
+#     if request.method != 'OPTIONS' or 'Access-Control-Request-Method' not in request.headers:
+#       url = request.url.replace('http://', 'https://', 1)
+#       code = 301
+#       return redirect(url, code=code)
 
 
 @app.after_request
@@ -101,10 +101,6 @@ def handle_unknown_exception(err):
 
     return response.return_flask_response(), 500
 
-@app.teardown_appcontext
-def app_shutdown(event):
-  CONFIGS.cron_task_runner.stop_task()
-
 
 
 app.add_url_rule('/', 'index', (lambda: "test 1"))
@@ -112,15 +108,7 @@ app.add_url_rule('/', 'index', (lambda: "test 1"))
 if __name__ == "__main__":
     if ENV_VARS.get("FLASK_BACKEND_ENV") == "DEV":
 
-      # IMPORTANT: do not set this in run_backend_env this is a part of your
-      # computers system env vars and you should set it seprately in an admin shell or CMD or powershell
-      # ssl_cert = ENV_VARS.get("WML_CERT0","cert.pem")
-      # ssl_key  = ENV_VARS.get("WML_CERT_KEY0","key.pem")
 
-      # app.run(
-      #   use_reloader=True,
-      #   exclude_patterns="site-packages",
-      #   debug=True,ssl_context=(ssl_cert,ssl_key),port=CONFIGS.app["backend_port"])
       app.run(
         use_reloader=True,
         exclude_patterns="site-packages",
