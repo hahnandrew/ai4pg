@@ -26,7 +26,6 @@ from endpoints.store_endpoint import store_endpoint
 from endpoints.accounts_endpoint import accounts_endpoint
 from endpoints.buddies_endpoint import buddies_endpoint
 
-CONFIGS.sentry_manager.init_sentry()
 app = Flask(__name__)
 app.config.update(
     FLASK_ENV = CONFIGS.app['flask_env'],
@@ -118,13 +117,17 @@ if __name__ == "__main__":
 
       # IMPORTANT: do not set this in run_backend_env this is a part of your
       # computers system env vars and you should set it seprately in an admin shell or CMD or powershell
-      ssl_cert = ENV_VARS.get("WML_CERT0","cert.pem")
-      ssl_key  = ENV_VARS.get("WML_CERT_KEY0","key.pem")
+      # ssl_cert = ENV_VARS.get("WML_CERT0","cert.pem")
+      # ssl_key  = ENV_VARS.get("WML_CERT_KEY0","key.pem")
 
+      # app.run(
+      #   use_reloader=True,
+      #   exclude_patterns="site-packages",
+      #   debug=True,ssl_context=(ssl_cert,ssl_key),port=CONFIGS.app["backend_port"])
       app.run(
         use_reloader=True,
         exclude_patterns="site-packages",
-        debug=True,ssl_context=(ssl_cert,ssl_key),port=CONFIGS.app["backend_port"])
+        debug=True,port=CONFIGS.app["backend_port"])
 
     else:
       app.run()
