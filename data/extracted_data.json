@@ -1,0 +1,36 @@
+{
+    "Certificate": "CERT9872",
+    "Court": "New York County Supreme Ct/CRM",
+    "Plaintiff": "The People of the State of New York",
+    "Defendant": "John Doe",
+    "Defendant DOB": "12/31/1990",
+    "Docket/Case Number": "test12345",
+    "Incident Date": "",
+    "Arrest Date": "01/01/2021",
+    "Arraignment Date": "02/01/2021",
+    "Charge Details": {
+      "Number of Charges": "1",
+      "Charge Code": "PL 110-4b.092",
+      "Charge Weight": "AM",
+      "Charge Description": "Attempted CORRUPTING THE GOVERNMENT",
+      "Conviction Type": "Pled Guilty",
+      "Sentence Date": "03/01/2021",
+      "Sentence Highlight": "Imprisonment Time Served"
+    },
+    "Weight of Charge Key": {
+      "Infraction": "I",
+      "Violation": "V",
+      "AM-Misdemeanor": "AM",
+      "BM-Misdemeanor": "BM",
+      "UM-Unclassified Misdemeanor": "UM",
+      "AF-A Felony": "AF",
+      "BF-B Felony": "BF",
+      "CF-C Felony": "CF",
+      "DF-D Felony": "DF",
+      "EF-E Felony": "EF"
+    },
+    "Certificate Date": "10/22/2023",
+    "Clerk of the Court": "[Signature]",
+    "Notice": "CAUTION: THIS DOCUMENT IS NOT OFFICIAL UNLESS EMBOSSED WITH THE COURT SEAL"
+  }
+  
