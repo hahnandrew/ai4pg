@@ -19,6 +19,7 @@ hvac
 docx2python
 pypdf
 PyPDF2
+pytesseract
 
 gevent
 
