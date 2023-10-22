@@ -130,24 +130,24 @@ import {
           "",
            'openCriminalCase')}
     
-          <Button
-            onClick={() => {
-              console.log(formState); // Or handle the formState as needed to check eligibility
-            }}
-          >
-            Submit
-          </Button>
-
-
-          </div>
+            <Button
+                onClick={handleSubmit} // Updated to call the new handleSubmit function
+            >
+                Submit
+            </Button>
+            </div>
         </div>
+
+        {/* Modal */}
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+            <p>{modalContent}</p>
+        </Modal>
+
+
+          
+        
         </>
       );
     };
     
     export default Application;
-
-            {/* Modal */}
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-            <p>{modalContent}</p>
-          </Modal>
