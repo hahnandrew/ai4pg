@@ -35,14 +35,26 @@ export default function PrivatePage(props) {
       <img src={createObjectURL} alt="Uploaded Preview" className="w-1/2 h-1/2 object-contain" />
       <h4 className="text-lg font-semibold">Select Image</h4>
       <div className="flex flex-col space-y-4 items-center">
-        <label className="btn btn-outline btn-circle">
-          <input type="file" name="myImage" onChange={uploadToClient} className="hidden" />
+        {/* Image selection button */}
+        <button
+          className="btn btn-outline btn-circle"
+          onClick={() => document.getElementById('myImageInput').click()}
+        >
           Choose Image
-        </label>
+        </button>
+        <input
+          id="myImageInput"
+          type="file"
+          name="myImage"
+          onChange={uploadToClient}
+          className="hidden"
+        />
+
         <button className="btn btn-primary" onClick={uploadToServer}>
           Send to server
         </button>
       </div>
     </div>
   );
+
 }
