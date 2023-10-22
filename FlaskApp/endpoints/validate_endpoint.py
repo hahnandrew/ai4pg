@@ -19,10 +19,9 @@ def validate_post_endpoint():
   res = APIMsgFormat(data=data, msg=request.url,code=CONFIGS.endpointMsgCodes["success"])
   return res.return_flask_response(),200
 
-@validate_endpoint.route('/',methods=[''])
+@validate_endpoint.route('/receive_charge_sheet',methods=[''])
 def validate_endpoint_receive_doc():
   data = request.json.get('data',{})
-
-
+  validate_handler.receive_doc(data)
   res = APIMsgFormat(msg="A-OK",code=CONFIGS.endpointMsgCodes["success"])
   return res.return_flask_response(),200
