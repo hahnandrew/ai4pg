@@ -15,10 +15,17 @@ pip install --verbose  -r .\requirements.txt --target .\site-packages\darwin --u
 ## Run
 * set env vars
 ### Windows
-```
+```ps1
 cd Env:
-Set-Content -Path  FLASK_BACKEND_ENV -Value "DEV" 
-cd C:\Users\Restop-8192\My_Apps\AI-for-pg\project\FlaskApp
+Set-Content -Path  FLASK_BACKEND_ENV -Value "DEV"
+cd [path prefix]\AI-for-pg\project\FlaskApp
 
+python app.py
+```
+
+### Mac OS
+```
+cd FlaskApp
+export FLASK_BACKEND_ENV=DEV
 python app.py
 ```
