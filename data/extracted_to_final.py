@@ -52,25 +52,21 @@ pdf_map_extract = {
     'Notary year - Affidavit of service': ' '
 }
 
-data_dict = {
-'Date of Birth': 'RANDOM SHIT ',
-'Phone': 'TESTEST',
-'Court Name 3': 'BANNAA',
-}
+def map_all_rows(extracted_json):
+    pdf_dict = {}
+    for i in pdf_map_extract:
+        if pdf_map_extract[i] in extracted_json:
+            extracted_value = extracted_json[pdf_map_extract[i]] 
+            print(extracted_value)
+            pdf_dict[i]= extracted_value 
 
-def map_single_row(key, value):
-    pdf_key = pdf_map_extract[key]
-
-    return {pdf_key, value}
+    print(pdf_dict)
+    return pdf_dict
 
 def main():
     file = open(json_file)
     data = json.load(file)
-    print(data)
-
-    # here you would manage the logic for mapping all the rows from the dictionary
-    data_dict = map_single_row('Applicant Name', "john doe") # this is a test
-
-    # save the data dict
+    data_dict = map_all_rows(data)
     fillpdfs.write_fillable_pdf(empty_pdf, output_pdf, data_dict)
 
+main()
