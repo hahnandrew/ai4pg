@@ -6,8 +6,10 @@ import mimetypes
 import re
 import pytesseract
 from PIL import Image
-
+import easyocr
 from configs import CONFIGS
+
+
 
 
 def receive_doc(binary_data):
@@ -21,8 +23,16 @@ def receive_doc(binary_data):
 def extract_text_from_image(binary_image_data):
     image_stream = BytesIO(binary_image_data)
     image = Image.open(image_stream)
-    text = pytesseract.image_to_string(image)
-    return text
+    reader = easyocr.Reader(['en'])  # 'en' specifies English language, adjust this based on your language
+    result = reader.readtext(image)
+
+    parsed_text = ""
+    for detection in result:
+        text = detection[1]
+        parsed_text += text + "\n"
+
+    return parsed_text
+
 
 
 def parse_certificate_data(input_text):

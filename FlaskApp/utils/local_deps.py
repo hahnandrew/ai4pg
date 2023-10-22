@@ -6,3 +6,7 @@ def local_deps():
     sys.path.append(sys.path[0] + './site-packages/linux')
   elif sys.platform =='darwin':
     sys.path.append(sys.path[0] + './site-packages/linux')
+
+local_deps()
+import pytesseract
+# pytesseract.pytesseract.tesseract_cmd = '/site-packages/linux'

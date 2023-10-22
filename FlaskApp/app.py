@@ -25,6 +25,7 @@ from endpoints.accounts_endpoint import accounts_endpoint
 from endpoints.validate_endpoint import validate_endpoint
 
 
+
 app = Flask(__name__)
 app.config.update(
     FLASK_ENV = CONFIGS.app['flask_env'],
@@ -109,7 +110,6 @@ if __name__ == "__main__":
     if ENV_VARS.get("FLASK_BACKEND_ENV") == "DEV":
 
       app.run(
-        use_reloader=True,
         exclude_patterns="site-packages",
         port=CONFIGS.app["backend_port"])
 
