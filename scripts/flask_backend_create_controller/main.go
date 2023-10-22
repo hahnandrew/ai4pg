@@ -19,9 +19,14 @@ func main() {
 	templateLocation := filepath.Join(scriptLocation, "template")
 	templateEndpointFile := filepath.Join(templateLocation, "template_endpoint.py")
 	templateHandlerFile := filepath.Join(templateLocation, "template_handler.py")
-	utils.CDToWorkspaceRoot()
-	utils.CDToLocation
-	utils.CDToFlaskApp()
+	CDToWorkspaceRoot()
+	workspaceFolder, err := os.Getwd()
+	if err != nil {
+		return
+	}
+	fmt.Println(workspaceFolder)
+	flaskAppPath := utils.JoinAndConvertPathToOSFormat(workspaceFolder,"project","FlaskApp")
+	utils.CDToLocation(flaskAppPath)
 	targetApp, err := os.Getwd()
 	if err != nil {
 		return
@@ -68,4 +73,8 @@ func main() {
 
 func updateAppFile(targetApp string) {
 	// appFile := filepath.Join(targetApp, "app.py")
+}
+
+func CDToWorkspaceRoot() {
+	utils.CDToLocation(filepath.Join("..", "..", ".."))
 }
