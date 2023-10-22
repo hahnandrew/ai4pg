@@ -1,5 +1,5 @@
 "use client"
-import ImageDropzone from '../components/dropimage.jsx';
+import ImageDropzone from '../components/dropimage';
 
 function YourPageComponent() {
   return (
