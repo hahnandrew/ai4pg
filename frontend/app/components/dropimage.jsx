@@ -1,4 +1,5 @@
 import { useState } from "react";
+// TODO change to Image from next/image
 
 export default function PrivatePage(props) {
   const [image, setImage] = useState(null);

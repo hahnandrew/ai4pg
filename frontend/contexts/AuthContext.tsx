@@ -21,7 +21,7 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 
-// type FCProps = { children?: ReactNode }
+type FCProps = { children?: ReactNode }
 
 // export const AuthProvider: FC<FCProps> = ({ children }) => {
 //   const [user, setUser] = useState<AuthUser>(null);
@@ -33,7 +33,11 @@ const AuthContext = createContext<AuthContextType | null>(null);
 //   return (<AuthUserContext.Provider value={{ user }}>{children}</AuthUserContext.Provider>);
 // }
 
-export function AuthProvider({ children }) {
+type AuthProviderProps = {
+  children: React.ReactNode;
+};
+
+export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setCurrentUser] = useState<User | null>(null);
   const [role, setRole] = useState<string | null>(null);
 
