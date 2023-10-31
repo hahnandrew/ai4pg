@@ -18,6 +18,6 @@ validate_endpoint =Blueprint("validate", __name__, url_prefix="/validate")
 def validate_endpoint_receive_doc():
 
 
-  validate_handler.receive_doc(request.data)
-  res = APIMsgFormat(msg="A-OK",code=CONFIGS.endpointMsgCodes["success"])
+  data = validate_handler.receive_doc(request.data)
+  res = APIMsgFormat(data=data,msg="A-OK",code=CONFIGS.endpointMsgCodes["success"])
   return res.return_flask_response(),200
