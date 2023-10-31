@@ -2,11 +2,11 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
-	],
+    './app/pages/**/*.{js,jsx,ts,tsx}',
+    './app/components/**/*.{js,jsx,ts,tsx}',
+    './app/**/*.{js,jsx,ts,tsx}',
+    './src/**/*.{js,jsx,ts,tsx}',
+  ],
   theme: {
     container: {
       center: true,
@@ -72,5 +72,6 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require('daisyui')],
+  plugins: [require('daisyui')],
+  // plugins: [require("tailwindcss-animate"), require('daisyui')],
 }
