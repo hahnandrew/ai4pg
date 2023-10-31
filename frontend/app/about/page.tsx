@@ -1,5 +1,5 @@
 "use client"
-import ImageDropzone from '../components/dropimage';
+
 
 function PageComponent() {
   return (
@@ -7,7 +7,7 @@ function PageComponent() {
       <div className="p-8 bg-white shadow-lg rounded-lg w-1/2">
         {/* <div>
       <div> */}
-        <ImageDropzone />
+        About Us
       </div>
     </div>
   );

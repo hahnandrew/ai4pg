@@ -1,11 +1,12 @@
 "use client"
 
 import Application from "./questionnaire/page"
+import PageComponent from "./home/index"
 
 function Details() {
   return (
     <div>
-      hello
+      <PageComponent />
     </div>
   );
 }
